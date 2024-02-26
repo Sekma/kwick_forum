@@ -1,0 +1,18 @@
+[
+    {
+        "article":"Article 1",
+        "price":15
+    },
+   {
+        "article":"Article 2",
+        "price":20
+    },
+   {
+        "article":"Article 3",
+        "price":25
+    },
+    {
+        "article":"Article 4",
+        "price":36
+    }
+]
