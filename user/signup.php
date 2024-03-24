@@ -102,14 +102,33 @@ include '../includes/connexion.php';
                 $statement = $pdo->prepare('INSERT INTO users(nom, birth, email, password, genre, file) VALUES(?,?,?,?,?,?)');
         
                 $statement->execute([$name, $birthday,$email, $password, $genre,$filename]);
-        
+
+
+                $statement = $pdo->prepare('SELECT * FROM users WHERE email=?');
+
+                $statement->execute([$email]);
+
+                $user = $statement->fetch(PDO::FETCH_ASSOC);
+                
                 session_start();
+                $_SESSION['name']=$user['nom'];
+                $_SESSION['avatar']=$user['file'];
+                $_SESSION['email']=$user['email'];
+                $_SESSION['genre']=$user['genre'];
+                $_SESSION['id']=$user['id'];
+                $birthday=$user['birth'];
+                // Calculer l'age
+                    $today = date("Y-m-d");
+                    $diff = date_diff(date_create($birthday), date_create($today));
+                    //echo 'Votre age est '.$diff->format('%y');
+                $_SESSION['age']=$diff->format('%y');
+                /* session_start();
         
                 $_SESSION['name']=$name;
                 $_SESSION['avatar']=$filename;
                 $_SESSION['email']=$email;
                 $_SESSION['genre']=$genre;
-                $_SESSION['age']=$age;
+                $_SESSION['age']=$age; */
                 header('location:../index.php');
         
                 

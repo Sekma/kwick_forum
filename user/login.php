@@ -25,7 +25,8 @@ session_start();
                 $_SESSION['avatar']=$user['file'];
                 $_SESSION['email']=$user['email'];
                 $_SESSION['genre']=$user['genre'];
-                
+                $_SESSION['id']=$user['id'];
+
                 $birthday=$user['birth'];
                 // Calculer l'age
                     $today = date("Y-m-d");

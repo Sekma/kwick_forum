@@ -8,9 +8,9 @@ try{
 
     $talk = $statement->fetchAll();
 
-     echo '<pre>';
+   /*   echo '<pre>';
     print_r($talk);
-    echo '</pre>'; 
+    echo '</pre>';  */
 
     
 }
